@@ -25,3 +25,16 @@ else:
 
 camera.release()
 cv2.destroyAllWindows()
+
+from PIL import Image
+import pytesseract
+
+# Open the captured image
+image = Image.open('captured_image.jpg')
+
+# Use Tesseract to do OCR on the image
+text = pytesseract.image_to_string(image)
+
+# Print the extracted text
+print("Extracted Text:")
+print(text)
