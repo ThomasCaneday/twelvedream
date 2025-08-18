@@ -1,6 +1,8 @@
 import cv2
 
-camera = cv2.VideoCapture(0)
+desktop_camera = 0
+iphone_camera = 1
+camera = cv2.VideoCapture(1)
 
 if not camera.isOpened():
     print("Error: Could not open camera.")
