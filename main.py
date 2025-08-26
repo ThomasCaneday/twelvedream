@@ -1,3 +1,14 @@
+# Copyright (c) 2025 Thomas Caneday. All rights reserved.
+#
+# Personal Project Notice (Twelvedream):
+# This source code was created by Thomas Caneday in a personal capacity and
+# is not a work made for hire. No rights are assigned or licensed to any
+# employer, client, or affiliated business. No company equipment, confidential
+# information, or trade secrets were used in its creation.
+#
+# License: MIT (unless a different LICENSE file is present in this repository).
+# Any use by a company or organization requires a separate written license from the owner.
+
 import cv2
 
 desktop_camera = 0
