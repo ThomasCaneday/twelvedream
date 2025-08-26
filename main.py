@@ -30,8 +30,10 @@ else:
         key = cv2.waitKey(1) & 0xFF
 
         if key == ord('s'):
-            cv2.imwrite('captured_image.jpg', frame)
-            print("Image captured and saved as 'captured_image.jpg'")
+            os.makedirs("captured_images", exist_ok=True)
+            path = f"captured_images/captured_image_{int(time.time())}.jpg"
+            cv2.imwrite(path, frame)
+            print(f"Image captured and saved as '{path}'")
             break
         elif key == ord('q'):
             break
