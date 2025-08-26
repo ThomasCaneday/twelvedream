@@ -40,3 +40,24 @@ text = pytesseract.image_to_string(image)
 # Print the extracted text
 print("Extracted Text:")
 print(text)
+print("-------------------- End of Extracted Text --------------------")
+
+
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+# load variables from .env into environment
+load_dotenv()
+
+# get the API key
+api_key = os.getenv("OPENAI_API_KEY")
+
+client = OpenAI(api_key=api_key)
+
+response = client.responses.create(
+    model="gpt-4o-mini",
+    input=f"You are a narrative designer. Your task is to take a passage of text from a book and distill it into a single clear story beat. A story beat is a short, vivid summary of the core event, action, or emotional turning point that moves the story forward. Guidelines: Focus only on the key moment (not all details), Keep it short: 1-3 sentences, Make it visual and evocative, so it can be imagined as a scene for an image or short video, Emphasize action, emotion, and setting over exposition. Here is the passage: {text} Now, provide the story beat:"
+)
+
+print(response.output_text)
