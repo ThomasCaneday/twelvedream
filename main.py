@@ -61,3 +61,12 @@ response = client.responses.create(
 )
 
 print(response.output_text)
+beat = response.output_text
+
+import base64, time
+
+os.makedirs("generated", exist_ok=True)
+img = client.images.generate(model="gpt-image-1", prompt=beat, size="1024x1024")
+png = base64.b64decode(img.data[0].b64_json)
+path = f"generated/beat_{int(time.time())}.png"
+with open(path, "wb") as f: f.write(png)
